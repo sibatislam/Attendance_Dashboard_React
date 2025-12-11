@@ -36,7 +36,7 @@ if not exist backend\.env (
   echo DB_USER=root>backend\.env
   echo DB_PASSWORD=>>backend\.env
   echo DB_HOST=localhost>>backend\.env
-  echo DB_PORT=3306>>backend\.env
+  echo DB_PORT=3310>>backend\.env
   echo DB_NAME=attendance_db>>backend\.env
   echo [Backend] Created backend\.env with default values.
 )

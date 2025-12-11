@@ -13,7 +13,8 @@ Ports
 -----
 - Frontend: http://localhost:5173
 - Backend: http://localhost:8000
-- MySQL: localhost:3306
+- Apache: http://localhost:8080
+- MySQL: localhost:3310
 
 Project Structure
 -----------------
@@ -25,7 +26,7 @@ Database Setup (XAMPP MySQL)
 ----------------------------
 1) Start MySQL in XAMPP
 2) Create database:
-   - Open phpMyAdmin or MySQL CLI and run:
+   - Open phpMyAdmin (http://localhost:8080/phpmyadmin) or MySQL CLI and run:
      - `CREATE DATABASE attendance_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;`
 3) (Optional) Create a dedicated user and grant privileges, or use root during development.
 
@@ -38,7 +39,7 @@ Backend Setup
    - `DB_USER=root`
    - `DB_PASSWORD=`
    - `DB_HOST=localhost`
-   - `DB_PORT=3306`
+   - `DB_PORT=3310`
    - `DB_NAME=attendance_db`
 4) Run the API:
    - `uvicorn app.main:app --reload --port 8000 --app-dir backend`
