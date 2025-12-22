@@ -11,18 +11,47 @@ if not exist .venv (
   )
 )
 
-REM Check Python version inside venv; recreate if it's 3.14 which breaks deps
-for /f "delims=" %%V in ('cmd /c .venv\Scripts\python -c "import sys;print(f'{sys.version_info.major}.{sys.version_info.minor}')" 2^>nul') do set VENV_PY=%%V
-if "%VENV_PY%"=="3.14" (
-  echo [Backend] Detected Python %VENV_PY% in venv; recreating with Python 3.11/3.10...
-  rmdir /s /q .venv
+REM Check if venv Python exists and works
+if not exist .venv\Scripts\python.exe (
+  echo [Backend] Virtual environment Python not found. Recreating venv...
+  rmdir /s /q .venv 2>nul
   call scripts\windows\setup_backend.bat || (
     echo [Backend] Failed to recreate virtualenv.
     exit /b 1
   )
 )
 
+REM Test if Python in venv actually works
+.venv\Scripts\python.exe --version >nul 2>&1
+if errorlevel 1 (
+  echo [Backend] Virtual environment Python is broken. Recreating venv...
+  rmdir /s /q .venv 2>nul
+  call scripts\windows\setup_backend.bat || (
+    echo [Backend] Failed to recreate virtualenv.
+    exit /b 1
+  )
+)
+
+REM Check Python version inside venv; warn if it's 3.14 but allow it
+for /f "tokens=1,2 delims=." %%A in ('".venv\Scripts\python.exe" -c "import sys;print(sys.version_info.major, sys.version_info.minor)" 2^>nul') do set VENV_PY=%%A.%%B
+if "%VENV_PY%"=="3.14" (
+  echo [Backend] WARNING: Using Python 3.14. Some dependencies may have compatibility issues.
+  echo [Backend] If you encounter issues, consider installing Python 3.11 or 3.12.
+)
+
+if not exist .venv\Scripts\activate.bat (
+  echo [Backend] ERROR: Virtual environment activation script not found.
+  exit /b 1
+)
+
 call .venv\Scripts\activate
+
+REM Verify Python works after activation
+python --version >nul 2>&1
+if errorlevel 1 (
+  echo [Backend] ERROR: Python not working after activation.
+  exit /b 1
+)
 
 set PORT=8081
 for /f "tokens=2 delims==" %%A in ('findstr /B /C:"BACKEND_PORT=" backend\.env 2^>nul') do set PORT=%%A
