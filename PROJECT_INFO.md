@@ -40,7 +40,7 @@
 ## Project Structure
 
 ```
-Attendance_Dashboard_React/
+Attendance_Dashboard/
 ├── backend/                 # FastAPI application
 │   ├── app/
 │   │   ├── routers/        # API route modules (17 files)

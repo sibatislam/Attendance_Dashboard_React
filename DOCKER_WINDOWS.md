@@ -28,7 +28,7 @@ This comprehensive guide explains how to deploy and manage the Attendance Monito
 
 1. **Open PowerShell and navigate to the project directory:**
    ```powershell
-   cd C:\path\to\Attendance_Dashboard_React
+   cd C:\path\to\Attendance_Dashboard
    ```
 
 2. **Start all services:**
@@ -95,7 +95,7 @@ docker-compose exec backend python -m app.init_db
 
 ```powershell
 # Navigate to project folder
-cd C:\path\to\Attendance_Dashboard_React
+cd C:\path\to\Attendance_Dashboard
 
 # Build and start all containers
 docker-compose up -d --build

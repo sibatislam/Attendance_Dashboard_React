@@ -23,22 +23,22 @@
 ### Frontend Service
 | Field | Value |
 |-------|-------|
-| **Docker Container Name** | attendance_frontend |
-| **Image** | attendance_dashboard_react-frontend |
+| **Docker Container Name** | attendance-dashboard-frontend |
+| **Image** | attendance-dashboard-frontend:latest |
 | **Port Mapping** | 5173:80 |
 
 ### Backend Service
 | Field | Value |
 |-------|-------|
-| **Docker Container Name** | attendance_backend |
-| **Image** | attendance_dashboard_react-backend |
+| **Docker Container Name** | attendance-dashboard-backend |
+| **Image** | attendance-dashboard-backend:latest |
 | **Port Mapping** | 8081:8081 |
 
 ### Database Service
 | Field | Value |
 |-------|-------|
-| **Docker Container Name** | attendance_db |
-| **Image** | mysql:8.0 |
+| **Docker Container Name** | attendance-dashboard-mysql |
+| **Image** | attendance-dashboard-mysql:latest |
 | **Port Mapping** | 3310:3306 |
 
 ---
@@ -47,9 +47,9 @@
 
 | Service | Container Name | Image | Port Mapping | Access URL |
 |---------|---------------|-------|--------------|-----------|
-| **Frontend** | attendance_frontend | attendance_dashboard_react-frontend | 5173:80 | http://localhost:5173 |
-| **Backend** | attendance_backend | attendance_dashboard_react-backend | 8081:8081 | http://localhost:8081 |
-| **Database** | attendance_db | mysql:8.0 | 3310:3306 | localhost:3310 |
+| **Frontend** | attendance-dashboard-frontend | attendance-dashboard-frontend:latest | 5173:80 | http://localhost:5173 |
+| **Backend** | attendance-dashboard-backend | attendance-dashboard-backend:latest | 8081:8081 | http://localhost:8081 |
+| **Database** | attendance-dashboard-mysql | attendance-dashboard-mysql:latest | 3310:3306 | localhost:3310 |
 
 ---
 

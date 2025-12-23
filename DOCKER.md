@@ -59,13 +59,13 @@ Choose your operating system:
 
 **Option A: Download ZIP**
 1. Download the repository as ZIP file
-2. Extract to a location (e.g., `C:\Projects\Attendance_Dashboard_React`)
+2. Extract to a location (e.g., `C:\Projects\Attendance_Dashboard`)
 
 **Option B: Clone with Git**
 ```cmd
 cd C:\Projects
-git clone <repository-url> Attendance_Dashboard_React
-cd Attendance_Dashboard_React
+git clone <repository-url> Attendance_Dashboard
+cd Attendance_Dashboard
 ```
 
 ### Step 3: Navigate to Project Directory
@@ -73,7 +73,7 @@ cd Attendance_Dashboard_React
 Open **Command Prompt** or **PowerShell**:
 
 ```cmd
-cd C:\path\to\Attendance_Dashboard_React
+cd C:\path\to\Attendance_Dashboard
 ```
 
 Replace with your actual path.
@@ -379,24 +379,24 @@ docker run hello-world
 **Option A: Clone with Git**
 ```bash
 cd /opt
-sudo git clone <repository-url> Attendance_Dashboard_React
-cd Attendance_Dashboard_React
+sudo git clone <repository-url> Attendance_Dashboard
+cd Attendance_Dashboard
 sudo chown -R $USER:$USER .
 ```
 
 **Option B: Download and Extract**
 ```bash
 cd /opt
-sudo wget <repository-zip-url> -O Attendance_Dashboard_React.zip
-sudo unzip Attendance_Dashboard_React.zip
-cd Attendance_Dashboard_React
+sudo wget <repository-zip-url> -O Attendance_Dashboard.zip
+sudo unzip Attendance_Dashboard.zip
+cd Attendance_Dashboard
 sudo chown -R $USER:$USER .
 ```
 
 ### Step 4: Navigate to Project Directory
 
 ```bash
-cd /opt/Attendance_Dashboard_React
+cd /opt/Attendance_Dashboard
 # Or your actual path
 ```
 

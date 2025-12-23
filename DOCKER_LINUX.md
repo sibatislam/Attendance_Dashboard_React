@@ -29,7 +29,7 @@ This comprehensive guide explains how to deploy and manage the Attendance Monito
 
 1. **Open terminal and navigate to the project directory:**
    ```bash
-   cd /path/to/Attendance_Dashboard_React
+   cd /path/to/Attendance_Dashboard
    ```
 
 2. **Start all services:**
@@ -96,7 +96,7 @@ docker-compose exec backend python -m app.init_db
 
 ```bash
 # Navigate to project folder
-cd /path/to/Attendance_Dashboard_React
+cd /path/to/Attendance_Dashboard
 
 # Build and start all containers
 docker-compose up -d --build

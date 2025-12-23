@@ -25,7 +25,7 @@ This guide will walk you through setting up and running the Attendance Dashboard
 Open Command Prompt or PowerShell and navigate to your project:
 
 ```bash
-cd C:\xampp\htdocs\Attendance_Dashboard_React
+cd C:\xampp\htdocs\Attendance_Dashboard
 ```
 
 ## Step 3: Create Environment File
@@ -89,9 +89,9 @@ docker-compose up -d
 
 **Expected output:**
 ```
-Creating network "attendance_dashboard_react_attendance_network" ... done
-Creating volume "attendance_dashboard_react_mysql_data" ... done
-Creating volume "attendance_dashboard_react_backend_data" ... done
+Creating network "attendance-dashboard_attendance_network" ... done
+Creating volume "attendance-dashboard_mysql_data" ... done
+Creating volume "attendance-dashboard_backend_data" ... done
 Creating attendance_db ... done
 Creating attendance_backend ... done
 Creating attendance_frontend ... done
