@@ -4,7 +4,7 @@ import { computeWorkHourCompletion } from './workHour'
 import { computeWorkHourLost } from './workHourLost'
 import { computeLeaveAnalysis } from './leaveAnalysis'
 
-// Auto-detect API base URL: use localhost if accessing locally, otherwise use server IP
+// Auto-detect API base URL: use same hostname as frontend
 // This allows the app to work both locally and from other PCs on the network
 const getApiBase = () => {
   // Allow override via environment variable
@@ -13,20 +13,11 @@ const getApiBase = () => {
     return import.meta.env.VITE_API_BASE
   }
   
-  // Auto-detect: if accessing via localhost, use localhost for API
-  // Otherwise use the server IP
+  // Use the same hostname as the frontend, but with backend port
   const hostname = window.location.hostname
-  console.log('[API] Detected hostname:', hostname)
-  
-  if (hostname === 'localhost' || hostname === '127.0.0.1') {
-    const apiBase = 'http://localhost:8081'
-    console.log('[API] Using localhost API:', apiBase)
-    return apiBase
-  }
-  
-  // Default to server IP for network access
-  const apiBase = 'http://172.16.50.50:8081'
-  console.log('[API] Using server IP API:', apiBase)
+  const protocol = window.location.protocol
+  const apiBase = `${protocol}//${hostname}:8081`
+  console.log('[API] Using dynamic API base:', apiBase)
   return apiBase
 }
 
