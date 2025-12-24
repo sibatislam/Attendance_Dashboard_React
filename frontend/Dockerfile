@@ -13,8 +13,8 @@ RUN npm ci
 # Copy source code
 COPY . .
 
-# Build argument for API base URL
-ARG VITE_API_BASE=http://localhost:8081
+# Build argument for API base URL (optional - if not provided, frontend uses dynamic detection)
+ARG VITE_API_BASE
 ENV VITE_API_BASE=$VITE_API_BASE
 
 # Build the application

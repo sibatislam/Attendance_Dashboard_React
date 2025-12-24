@@ -62,9 +62,8 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-      args:
-        # Use backend service name for Docker network, fallback to localhost for browser
-        VITE_API_BASE: http://localhost:${BACKEND_PORT:-8081}
+      # VITE_API_BASE is not set - frontend uses dynamic hostname detection at runtime
+      # This allows it to work from any IP address (localhost, network IP, etc.)
     image: attendance-dashboard-frontend:latest
     container_name: attendance-dashboard-frontend
     restart: unless-stopped
